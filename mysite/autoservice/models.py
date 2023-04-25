@@ -11,11 +11,11 @@ class Service(models.Model):
     price = models.IntegerField(verbose_name='Kaina')
 
 
-class vehicle(models.Model):
+class Vehicle(models.Model):
     plate = models.CharField(verbose_name='valstybinis numeris', max_length=6)
     vin = models.CharField(verbose_name='VIN kodas', max_length=17)
     owner_name = models.CharField(verbose_name='Savininkas', max_length=50)
-    vehicle_model = models.CharField(to='VehicleModel', verbose_name='Automobilio modelis', on_delete=models.SET_NULL, null=True)
+    vehicle_model = models.ForeignKey(to='VehicleModel', verbose_name='Automobilio modelis', on_delete=models.SET_NULL, null=True)
 
 
 class Order(models.Model):
